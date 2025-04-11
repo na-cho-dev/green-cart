@@ -149,11 +149,14 @@ export const stripeWebhooks = async (request, response) => {
 
       const { orderId, userId } = session.data[0].metadata;
 
+      console.log("ORDER SUCCESS!!!");
+
       // Mark Payment as Paid
       await Order.findByIdAndUpdate(orderId, { isPaid: true });
 
       // Clear Cart Data
       await User.findByIdAndUpdate(userId, { cartItems: {} });
+    
       break;
     }
 
@@ -169,6 +172,7 @@ export const stripeWebhooks = async (request, response) => {
       const { orderId } = session.data[0].metadata;
 
       await Order.findByIdAndDelete(orderId);
+      
       break;
     }
 
