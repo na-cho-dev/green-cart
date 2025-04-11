@@ -21,7 +21,7 @@ await connectCloudinary();
 
 // Allow multiple origins
 const allowedOrigins = [
-  "https://green-cart-azure.vercel.app",
+  "https://green-cart-nacho.vercel.app",
   "http://localhost:4400",
   "http://127.0.0.1:4400",
 ];
