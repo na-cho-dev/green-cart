@@ -149,8 +149,6 @@ export const stripeWebhooks = async (request, response) => {
 
       const { orderId, userId } = session.data[0].metadata;
 
-      console.log("ORDER SUCCESS!!!");
-
       // Mark Payment as Paid
       await Order.findByIdAndUpdate(orderId, { isPaid: true });
 
